@@ -8,7 +8,7 @@ module.exports = {
                 primaryKey: true,
                 autoIncrement: true,
             },
-            email: Sequelize.STRING,
+            usuario: Sequelize.STRING,
             senha: Sequelize.STRING,
             createdAt: Sequelize.DATE,
             updatedAt: Sequelize.DATE,

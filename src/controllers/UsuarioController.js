@@ -35,19 +35,16 @@ module.exports = {
 
     async store(req, res){
         const { 
-            email, 
+            usuario, 
             senha
         } = req.body        
-
-        if(senha.length < 6)
-            return res.status(400).json({ message: "Senha precisa ser ao minimo 6 caracteres."})
         
-        if(await Usuario.findOne({ where: { email } }))
+        if(await Usuario.findOne({ where: { usuario } }))
             return res.status(400).json({ message: "Usuario ja cadastrado."})
         
         const senhaHash = bcrypt.hashSync(senha, 10)
 
-        await Usuario.create({ email, senha: senhaHash })
+        await Usuario.create({ usuario, senha: senhaHash })
         .then(response => {
             return res.status(200).json(response)
         })

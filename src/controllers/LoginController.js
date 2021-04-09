@@ -5,12 +5,12 @@ const jwt = require('jsonwebtoken')
 module.exports = {
 
     async login(req, res){
-        const { email, senha } = req.body
+        const { usuario, senha } = req.body
         console.log(senha)
 
         const result =  await Usuario.findOne({
             where: {
-                email
+                usuario
             }
         })
     
